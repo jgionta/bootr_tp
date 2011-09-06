@@ -1,0 +1,30 @@
+Multi Boot Support for TouchPad
+
+pre-reqs: palm sdk, bootr_tp.tar sources
+
+1)Connect TouchPad to computer via USB. (Do not put TouchPad in storage mode)
+
+2)Open terminal/Command prompt
+
+3)put bootr for tp on TouchPad
+	# novacom put file://media/internal/bootr_tp.tar < bootr_tp.tar
+
+4)Log in to TouchPad
+	# novaterm
+
+5)
+On device:
+$ mount -o remount,rw /boot
+$ cd /media/internal
+$ tar xvf bootr_tp.tar -C /boot
+$ sh /boot/bootr/bin/install.sh install
+
+
+Multi Boot for Touchpad is now enabled
+
+On boot use the volume keys to select the OS (Framebuffer is screwed up right now so you can't see which OS)
+
+
+*****No configuration for Android yet.  Need a uBoot kernel image and Android paritions.
+*****Boot configure is done by modifying android patch in the ./data/patches directory and modifyin the
+*****./os folder
